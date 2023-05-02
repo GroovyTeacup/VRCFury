@@ -665,7 +665,14 @@ namespace VF.Model.Feature {
     public class BlendshapeOptimizer : NewFeatureModel {
         public bool keepMmdShapes;
     }
-    
+
+    [Serializable]
+    public class MeshSimplify : NewFeatureModel
+    {
+       public SkinnedMeshRenderer singleRenderer;
+       public float quality = 0.5f;
+    }
+
     [Serializable]
     public class Slot4Fix : NewFeatureModel {
     }

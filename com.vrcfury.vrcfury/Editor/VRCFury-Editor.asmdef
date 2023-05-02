@@ -2,7 +2,8 @@
     "name": "VRCFury-Editor",
     "references": [
         "VRCFury",
-        "VRC.SDKBase.Editor.BuildPipeline"
+        "VRC.SDKBase.Editor.BuildPipeline",
+        "Whinarn.UnityMeshSimplifier.Runtime"
     ],
     "includePlatforms": [
         "Editor"

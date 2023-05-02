@@ -30,7 +30,10 @@ namespace VF.Feature.Base {
         
         // Needs to run after any builders have added their "disable blinking" models (gesture builders mostly)
         Blinking = 5,
-        
+
+        // Needs to run... sometime.
+        MeshSimplifier = 9,
+
         // Needs to happen after any new skinned meshes have been added
         BoundingBoxFix = 10,
         AnchorOverrideFix = 11,
