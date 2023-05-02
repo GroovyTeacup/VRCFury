@@ -37,7 +37,7 @@ namespace VF.Feature {
             if (renderer == null) return;
 
             Mesh sourceMesh = renderer.sharedMesh;
-            if (sourceMesh == null) // verify that the mesh filter actually has a mesh
+            if (sourceMesh == null)
                 return;
 
             // Create our mesh simplifier and setup our entire mesh in it
@@ -47,9 +47,17 @@ namespace VF.Feature {
             // This is where the magic happens, lets simplify!
             meshSimplifier.SimplifyMesh(model.quality);
 
-            // Create our final mesh and apply it back to our mesh filter
-            renderer.sharedMesh = meshSimplifier.ToMesh();
+            // Create our final mesh, save the asset, and apply it to our skinned mesh
+            var simplifiedMesh = meshSimplifier.ToMesh();
+            simplifiedMesh.name = sourceMesh.name + "_VRCF_Simplified";
 
+            var meshCopy = mutableManager.MakeMutable(simplifiedMesh);
+
+            VRCFuryEditorUtils.MarkDirty(meshCopy);
+
+            renderer.sharedMesh = meshCopy;
+
+            VRCFuryEditorUtils.MarkDirty(renderer);
         }
     }
 }
